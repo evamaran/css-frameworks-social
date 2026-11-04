@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
 
 <head>
-	<meta charset='utf-8'>
-	<meta name='viewport' content='width=device-width, initial-scale=1'>
-	<title>Page Title</title>
-	<link rel='stylesheet' href='main.css'>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Feed</title>
+	<link rel="stylesheet" href="../css/style.css" />
 </head>
 
-<body>
+<body class="min-h-screen flex flex-col bg-gray-100">
 	<header class="bg-white border-b border-gray-100 shadow-xs">
 		<div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
 			<a href="feed/index.html" class="text-xl font-bold tracking-tight text-neutral-900">My CA Platform</a>
@@ -47,6 +47,270 @@
 			</div>
 		</nav>
 	</header>
+	<main>
+		<!-- Feed Container: Centers the content and stacks the posts -->
+		<div class="max-w-md mx-auto space-y-8">
+
+			<!-- POST 1:  -->
+			<div class="bg-white rounded-2xl shadow-md overflow-hidden border border-slate-200">
+				<div class="flex items-center justify-between p-4">
+					<div class="flex items-center space-x-3">
+						<img class="w-10 h-10 rounded-full object-cover border-2 border-emerald-500"
+							src="../images/eva_avatar.jpg" alt="Avatar">
+						<div>
+							<h3 class="font-semibold text-slate-800 text-sm">eva_dev</h3>
+						</div>
+					</div>
+					<button class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-ellipsis"></i></button>
+				</div>
+				<div class="w-full h-80 bg-slate-200">
+					<img class="w-full h-full object-cover" src="../images/fw_01.png" alt="Tailwind UI components">
+				</div>
+				<div class="px-4 pt-3 pb-2 flex items-center justify-between">
+					<div class="flex items-center space-x-4">
+						<button class="text-slate-700 hover:text-red-500 transition-colors text-xl"><i
+								class="fa-regular fa-heart"></i></button>
+						<button class="text-slate-700 hover:text-emerald-500 transition-colors text-xl"><i
+								class="fa-regular fa-comment"></i></button>
+						<button class="text-slate-700 hover:text-emerald-500 transition-colors text-xl"><i
+								class="fa-regular fa-paper-plane"></i></button>
+					</div>
+					<button class="text-slate-700 hover:text-emerald-500 transition-colors text-xl"><i
+							class="fa-regular fa-bookmark"></i></button>
+				</div>
+				<div class="px-4 pb-2">
+					<p class="text-sm font-semibold text-slate-800">1,420 likes</p>
+				</div>
+				<div class="px-4 pb-4">
+					<p class="text-sm text-slate-700">
+						<span class="font-semibold text-slate-800 mr-1">eva_dev</span>
+						Teaching an old dog new tricks! This styling is hard to wrap my head around, but Tailwind is
+						getting easier to understand.
+					</p>
+					<div class="flex flex-wrap gap-1 mt-2">
+						<span class="text-xs text-emerald-600 font-medium">#css</span>
+						<span class="text-xs text-emerald-600 font-medium">#frontend</span>
+						<span class="text-xs text-emerald-600 font-medium">#tailwind</span>
+					</div>
+				</div>
+			</div>
+
+			<!-- POST 2:  -->
+			<div class="bg-white rounded-2xl shadow-md overflow-hidden border border-slate-200">
+				<div class="flex items-center justify-between p-4">
+					<div class="flex items-center space-x-3">
+						<img class="w-10 h-10 rounded-full object-cover border-2 border-purple-500"
+							src="../images/alex_avatar.jpg" alt="Avatar">
+						<div>
+							<h3 class="font-semibold text-slate-800 text-sm">alex_codes</h3>
+						</div>
+					</div>
+					<button class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-ellipsis"></i></button>
+				</div>
+				<div class="w-full h-80 bg-slate-200">
+					<img class="w-full h-full object-cover" src="../images/alex_post_image.jpg"
+						alt="Tailwind UI components">
+				</div>
+				<div class="px-4 pt-3 pb-2 flex items-center justify-between">
+					<div class="flex items-center space-x-4">
+						<button class="text-slate-700 hover:text-red-500 transition-colors text-xl"><i
+								class="fa-regular fa-heart"></i></button>
+						<button class="text-slate-700 hover:text-purple-500 transition-colors text-xl"><i
+								class="fa-regular fa-comment"></i></button>
+						<button class="text-slate-700 hover:text-purple-500 transition-colors text-xl"><i
+								class="fa-regular fa-paper-plane"></i></button>
+					</div>
+					<button class="text-slate-700 hover:text-purple-500 transition-colors text-xl"><i
+							class="fa-regular fa-bookmark"></i></button>
+				</div>
+				<div class="px-4 pb-2">
+					<p class="text-sm font-semibold text-slate-800">854 likes</p>
+				</div>
+				<div class="px-4 pb-4">
+					<p class="text-sm text-slate-700">
+						<span class="font-semibold text-slate-800 mr-1">alex_codes</span>
+						Tailwind CSS utility classes make prototyping modern UIs insanely fast. Testing my latest
+						design.
+					</p>
+					<div class="flex flex-wrap gap-1 mt-2">
+						<span class="text-xs text-purple-600 font-medium">#tailwindcss</span>
+						<span class="text-xs text-purple-600 font-medium">#css</span>
+						<span class="text-xs text-purple-600 font-medium">#ui</span>
+					</div>
+				</div>
+			</div>
+
+			<!-- POST 3: -->
+			<div class="bg-white rounded-2xl shadow-md overflow-hidden border border-slate-200">
+				<div class="flex items-center justify-between p-4">
+					<div class="flex items-center space-x-3">
+						<img class="w-10 h-10 rounded-full object-cover border-2 border-emerald-500"
+							src="../images/eva_avatar.jpg" alt="Avatar">
+						<div>
+							<h3 class="font-semibold text-slate-800 text-sm">eva_dev</h3>
+						</div>
+					</div>
+					<button class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-ellipsis"></i></button>
+				</div>
+				<div class="px-4 pt-3 pb-2 flex items-center justify-between">
+					<div class="flex items-center space-x-4">
+						<button class="text-slate-700 hover:text-red-500 transition-colors text-xl"><i
+								class="fa-regular fa-heart"></i></button>
+						<button class="text-slate-700 hover:text-emerald-500 transition-colors text-xl"><i
+								class="fa-regular fa-comment"></i></button>
+						<button class="text-slate-700 hover:text-emerald-500 transition-colors text-xl"><i
+								class="fa-regular fa-paper-plane"></i></button>
+					</div>
+					<button class="text-slate-700 hover:text-emerald-500 transition-colors text-xl"><i
+							class="fa-regular fa-bookmark"></i></button>
+				</div>
+				<div class="px-4 pb-2">
+					<p class="text-sm font-semibold text-slate-800">623 likes</p>
+				</div>
+				<div class="px-4 pb-4">
+					<p class="text-sm text-slate-700">
+						<span class="font-semibold text-slate-800 mr-1">eva_dev</span>
+						Testing my design with Tailwind CSS.
+					</p>
+					<div class="flex flex-wrap gap-1 mt-2">
+						<span class="text-xs text-emerald-600 font-medium">#tailwind</span>
+						<span class="text-xs text-emerald-600 font-medium">#frontend</span>
+						<span class="text-xs text-emerald-600 font-medium">#clean-code</span>
+					</div>
+				</div>
+			</div>
+
+			<!-- POST 4:  -->
+			<div class="bg-white rounded-2xl shadow-md overflow-hidden border border-slate-200">
+				<div class="flex items-center justify-between p-4">
+					<div class="flex items-center space-x-3">
+						<img class="w-10 h-10 rounded-full object-cover border-2 border-amber-500"
+							src="../images/karen_avatar.jpg" alt="Avatar">
+						<div>
+							<h3 class="font-semibold text-slate-800 text-sm">karen_designs</h3>
+						</div>
+					</div>
+					<button class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-ellipsis"></i></button>
+				</div>
+				<div class="px-4 pt-3 pb-2 flex items-center justify-between">
+					<div class="flex items-center space-x-4">
+						<button class="text-slate-700 hover:text-red-500 transition-colors text-xl"><i
+								class="fa-regular fa-heart"></i></button>
+						<button class="text-slate-700 hover:text-amber-500 transition-colors text-xl"><i
+								class="fa-regular fa-comment"></i></button>
+						<button class="text-slate-700 hover:text-amber-500 transition-colors text-xl"><i
+								class="fa-regular fa-paper-plane"></i></button>
+					</div>
+					<button class="text-slate-700 hover:text-amber-500 transition-colors text-xl"><i
+							class="fa-regular fa-bookmark"></i></button>
+				</div>
+				<div class="px-4 pb-2">
+					<p class="text-sm font-semibold text-slate-800">412 likes</p>
+				</div>
+				<div class="px-4 pb-4">
+					<p class="text-sm text-slate-700">
+						<span class="font-semibold text-slate-800 mr-1">mia_frontend</span>
+						I love styling directly in html!
+					</p>
+					<div class="flex flex-wrap gap-1 mt-2">
+						<span class="text-xs text-amber-600 font-medium">#css</span>
+						<span class="text-xs text-amber-600 font-medium">#frontend</span>
+						<span class="text-xs text-amber-600 font-medium">#webdesign</span>
+					</div>
+				</div>
+			</div>
+
+			<!-- POST 5:  -->
+			<div class="bg-white rounded-2xl shadow-md overflow-hidden border border-slate-200">
+				<div class="flex items-center justify-between p-4">
+					<div class="flex items-center space-x-3">
+						<img class="w-10 h-10 rounded-full object-cover border-2 border-emerald-500"
+							src="../images/eva_avatar.jpg" alt="Avatar">
+						<div>
+							<h3 class="font-semibold text-slate-800 text-sm">eva_dev</h3>
+						</div>
+					</div>
+					<button class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-ellipsis"></i></button>
+				</div>
+				<div class="px-4 pt-3 pb-2 flex items-center justify-between">
+					<div class="flex items-center space-x-4">
+						<button class="text-slate-700 hover:text-red-500 transition-colors text-xl"><i
+								class="fa-regular fa-heart"></i></button>
+						<button class="text-slate-700 hover:text-emerald-500 transition-colors text-xl"><i
+								class="fa-regular fa-comment"></i></button>
+						<button class="text-slate-700 hover:text-emerald-500 transition-colors text-xl"><i
+								class="fa-regular fa-paper-plane"></i></button>
+					</div>
+					<button class="text-slate-700 hover:text-emerald-500 transition-colors text-xl"><i
+							class="fa-regular fa-bookmark"></i></button>
+				</div>
+				<div class="px-4 pb-2">
+					<p class="text-sm font-semibold text-slate-800">978 likes</p>
+				</div>
+				<div class="px-4 pb-4">
+					<p class="text-sm text-slate-700">
+						<span class="font-semibold text-slate-800 mr-1">eva_dev</span>
+						Setting up basic page structure before diving into styling.
+					</p>
+					<div class="flex flex-wrap gap-1 mt-2">
+						<span class="text-xs text-emerald-600 font-medium">#tailwindcss</span>
+						<span class="text-xs text-emerald-600 font-medium">#css</span>
+						<span class="text-xs text-emerald-600 font-medium">#frontend</span>
+					</div>
+				</div>
+			</div>
+
+			<!-- POST 6:  -->
+			<div class="bg-white rounded-2xl shadow-md overflow-hidden border border-slate-200">
+				<div class="flex items-center justify-between p-4">
+					<div class="flex items-center space-x-3">
+						<img class="w-10 h-10 rounded-full object-cover border-2 border-blue-500"
+							src="../images/marcus_avatar.jpg" alt="Avatar">
+						<div>
+							<h3 class="font-semibold text-slate-800 text-sm">marcus_script</h3>
+						</div>
+					</div>
+					<button class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-ellipsis"></i></button>
+				</div>
+				<div class="px-4 pt-3 pb-2 flex items-center justify-between">
+					<div class="flex items-center space-x-4">
+						<button class="text-slate-700 hover:text-red-500 transition-colors text-xl"><i
+								class="fa-regular fa-heart"></i></button>
+						<button class="text-slate-700 hover:text-blue-500 transition-colors text-xl"><i
+								class="fa-regular fa-comment"></i></button>
+						<button class="text-slate-700 hover:text-blue-500 transition-colors text-xl"><i
+								class="fa-regular fa-paper-plane"></i></button>
+					</div>
+					<button class="text-slate-700 hover:text-blue-500 transition-colors text-xl"><i
+							class="fa-regular fa-bookmark"></i></button>
+				</div>
+				<div class="px-4 pb-2">
+					<p class="text-sm font-semibold text-slate-800">512 likes</p>
+				</div>
+				<div class="px-4 pb-4">
+					<p class="text-sm text-slate-700">
+						<span class="font-semibold text-slate-800 mr-1">marcus_script</span>
+						This was a blast! I think I'm almost done already. More time to build my robot!
+					</p>
+					<div class="flex flex-wrap gap-1 mt-2">
+						<span class="text-xs text-blue-600 font-medium">#frontend</span>
+						<span class="text-xs text-blue-600 font-medium">#robot</span>
+						<span class="text-xs text-blue-600 font-medium">#js</span>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</main>
+	<!-- Footer -->
+	<footer class="bg-white border-t border-gray-100">
+		<div class="max-w-6xl mx-auto px-4 py-6 text-center text-sm text-neutral-500">
+			<p>&copy; 2026 My CA Platform</p>
+		</div>
+	</footer>
+
+	<!-- JavaScript for Mobile Menu Toggle -->
+	<script src="./js/menu.js"></script>
 </body>
 
 </html>
