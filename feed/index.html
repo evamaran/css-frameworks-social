@@ -4,14 +4,18 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Feed</title>
-	<link rel="stylesheet" href="../css/style.css" />
+	<meta name="description" content="See the latest posts from your community on My CA Platform.">
+	<meta name="theme-color" content="#9333ea">
+	<title>Feed | My CA Platform</title>
+	<link rel="icon" href="../images/favicon.svg" type="image/svg+xml" sizes="any">
+	<link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body class="min-h-screen flex flex-col bg-gray-100">
-	<header class="bg-white border-b border-gray-100 shadow-xs">
-		<div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-			<a href="feed/index.html" class="text-xl font-bold tracking-tight text-neutral-900">My CA Platform</a>
+	<header class="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-xs">
+		<div
+			class="max-w-6xl mx-auto px-4 min-h-16 flex flex-wrap items-center justify-between gap-y-3 py-3 md:h-16 md:flex-nowrap md:gap-y-0 md:py-0">
+			<a href="../feed/index.html" class="text-xl font-bold tracking-tight text-purple-600">My CA Platform</a>
 
 			<!-- Mobile Menu Button -->
 			<button id="menu-toggle"
@@ -30,276 +34,533 @@
 				</svg>
 			</button>
 
+			<form role="search" class="order-3 w-full md:order-2 md:mx-8 md:w-auto md:max-w-md md:flex-1">
+				<label class="sr-only" for="feed-search">Search posts</label>
+				<div class="relative">
+					<svg class="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-neutral-500"
+						fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+						<circle cx="11" cy="11" r="7" />
+						<path stroke-linecap="round" stroke-linejoin="round" d="m20 20-4-4" />
+					</svg>
+					<input id="feed-search" name="q" type="search" placeholder="Search posts..."
+						class="w-full rounded-md border border-gray-300 bg-white py-2 pl-10 pr-3 text-sm text-neutral-900 placeholder:text-neutral-500 focus:border-purple-600 focus:outline-hidden focus:ring-2 focus:ring-purple-600/20">
+				</div>
+			</form>
+
 			<!-- Desktop Navigation -->
-			<nav class="hidden md:flex items-center gap-x-8 text-sm font-medium text-neutral-600">
-				<a href="feed/index.html" class="hover:text-neutral-900 transition">Home</a>
-				<a href="index.html" class="hover:text-neutral-900 transition">My profile</a>
+			<nav class="order-3 hidden md:flex items-center gap-x-8 text-sm font-medium text-neutral-600">
+				<a href="../feed/index.html" class="hover:text-neutral-900 transition">Home</a>
+				<a href="../profile/index.html" class="hover:text-neutral-900 transition">My profile</a>
+				<a href="../index.html" class="hover:text-neutral-900 transition">Log out</a>
 			</nav>
 		</div>
 
 		<!-- Mobile Dropdown Menu -->
 		<nav id="mobile-menu" class="hidden md:hidden border-t border-gray-100 bg-neutral-50 py-3 px-4 shadow-inner">
 			<div class="flex flex-col gap-y-2 text-base font-medium text-neutral-600">
-				<a href="feed/index.html"
+				<a href="../feed/index.html"
 					class="px-3 py-2 rounded-md hover:bg-neutral-100 hover:text-neutral-900 transition">Home</a>
-				<a href="index.html"
+				<a href="../profile/index.html"
 					class="px-3 py-2 rounded-md hover:bg-neutral-100 hover:text-neutral-900 transition">My profile</a>
+				<a href="../index.html"
+					class="px-3 py-2 rounded-md hover:bg-neutral-100 hover:text-neutral-900 transition">Log out</a>
 			</div>
 		</nav>
 	</header>
-	<main>
-		<!-- Feed Container: Centers the content and stacks the posts -->
-		<div class="max-w-md mx-auto space-y-8">
+	<main class="flex-1 px-4 py-6">
+		<h1 class="sr-only">Feed</h1>
+		<div class="max-w-md mx-auto space-y-6">
+			<form class="rounded-2xl border border-slate-200 bg-white p-4 shadow-md">
+				<h2 class="mb-3 text-lg font-semibold text-slate-800">Create a post</h2>
+				<label class="sr-only" for="post-text">Post text</label>
+				<textarea id="post-text" name="text" rows="3" required maxlength="500"
+					placeholder="What's on your mind?"
+					class="mb-4 block w-full resize-y rounded-md border border-gray-300 px-3 py-2 text-sm text-neutral-900 placeholder:text-neutral-500 focus:border-purple-600 focus:outline-hidden focus:ring-2 focus:ring-purple-600/20"></textarea>
+				<div class="mb-4">
+					<label for="post-image" class="mb-1 block text-sm font-medium text-slate-700">Add an image
+						(optional)</label>
+					<input id="post-image" name="image" type="file" accept="image/*"
+						class="block w-full text-sm text-neutral-600 file:mr-3 file:rounded-md file:border-0 file:bg-purple-50 file:px-3 file:py-2 file:font-medium file:text-purple-600 hover:file:bg-purple-100">
+				</div>
+				<button type="submit"
+					class="rounded-md bg-purple-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-purple-700 focus:outline-hidden focus:ring-2 focus:ring-purple-600 focus:ring-offset-2">Post</button>
+			</form>
 
-			<!-- POST 1:  -->
-			<div class="bg-white rounded-2xl shadow-md overflow-hidden border border-slate-200">
-				<div class="flex items-center justify-between p-4">
-					<div class="flex items-center space-x-3">
-						<img class="w-10 h-10 rounded-full object-cover border-2 border-emerald-500"
-							src="../images/eva_avatar.jpg" alt="Avatar">
-						<div>
-							<h3 class="font-semibold text-slate-800 text-sm">eva_dev</h3>
-						</div>
-					</div>
-					<button class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-ellipsis"></i></button>
-				</div>
-				<div class="w-full h-80 bg-slate-200">
-					<img class="w-full h-full object-cover" src="../images/fw_01.png" alt="Tailwind UI components">
-				</div>
-				<div class="px-4 pt-3 pb-2 flex items-center justify-between">
-					<div class="flex items-center space-x-4">
-						<button class="text-slate-700 hover:text-red-500 transition-colors text-xl"><i
-								class="fa-regular fa-heart"></i></button>
-						<button class="text-slate-700 hover:text-emerald-500 transition-colors text-xl"><i
-								class="fa-regular fa-comment"></i></button>
-						<button class="text-slate-700 hover:text-emerald-500 transition-colors text-xl"><i
-								class="fa-regular fa-paper-plane"></i></button>
-					</div>
-					<button class="text-slate-700 hover:text-emerald-500 transition-colors text-xl"><i
-							class="fa-regular fa-bookmark"></i></button>
-				</div>
-				<div class="px-4 pb-2">
-					<p class="text-sm font-semibold text-slate-800">1,420 likes</p>
-				</div>
-				<div class="px-4 pb-4">
-					<p class="text-sm text-slate-700">
-						<span class="font-semibold text-slate-800 mr-1">eva_dev</span>
-						Teaching an old dog new tricks! This styling is hard to wrap my head around, but Tailwind is
-						getting easier to understand.
-					</p>
-					<div class="flex flex-wrap gap-1 mt-2">
-						<span class="text-xs text-emerald-600 font-medium">#css</span>
-						<span class="text-xs text-emerald-600 font-medium">#frontend</span>
-						<span class="text-xs text-emerald-600 font-medium">#tailwind</span>
-					</div>
+			<div class="flex flex-wrap items-center gap-2">
+				<span id="sort-heading" class="mr-1 text-sm font-semibold text-slate-700">Sort by</span>
+				<div role="group" aria-labelledby="sort-heading" class="flex flex-wrap gap-2">
+					<button type="button" aria-pressed="true"
+						class="rounded-full bg-purple-600 px-3 py-1.5 text-sm font-medium text-white">Newest</button>
+					<button type="button" aria-pressed="false"
+						class="rounded-full border border-slate-300 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 hover:border-purple-600 hover:text-purple-600">Oldest</button>
+					<button type="button" aria-pressed="false"
+						class="rounded-full border border-slate-300 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 hover:border-purple-600 hover:text-purple-600">Most
+						liked</button>
 				</div>
 			</div>
 
-			<!-- POST 2:  -->
-			<div class="bg-white rounded-2xl shadow-md overflow-hidden border border-slate-200">
-				<div class="flex items-center justify-between p-4">
-					<div class="flex items-center space-x-3">
-						<img class="w-10 h-10 rounded-full object-cover border-2 border-purple-500"
-							src="../images/alex_avatar.jpg" alt="Avatar">
-						<div>
-							<h3 class="font-semibold text-slate-800 text-sm">alex_codes</h3>
+			<!-- Feed Container -->
+			<div class="space-y-8">
+				<h2 class="sr-only">Posts</h2>
+				<!-- POST 1 -->
+				<article class="bg-white rounded-2xl shadow-md overflow-hidden border border-slate-200">
+
+					<!-- Post header -->
+					<div class="flex items-center justify-between p-4">
+						<div class="flex items-center space-x-3">
+							<img class="w-10 h-10 rounded-full object-cover border-2 border-purple-600"
+								src="../images/eva_avatar.jpg" alt="">
+							<div>
+								<h3 class="font-semibold text-slate-800 text-sm">eva_dev</h3>
+							</div>
+						</div>
+						<button type="button" class="text-slate-400 hover:text-slate-600" aria-label="More options">
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+								stroke="currentColor" class="size-6" aria-hidden="true">
+								<path stroke-linecap="round" stroke-linejoin="round"
+									d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+							</svg>
+						</button>
+					</div>
+
+					<!-- Post image -->
+					<div class="w-full h-80 bg-slate-200">
+						<img class="w-full h-full object-cover" src="../images/fw_01.png" alt="Tailwind school project">
+					</div>
+
+					<!-- Action buttons -->
+					<div class="px-4 pt-3 pb-2 flex items-center justify-between">
+						<div class="flex items-center space-x-4">
+							<button type="button" class="text-slate-700 hover:text-red-500 transition-colors"
+								aria-label="Like">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+									stroke-width="1.5" stroke="currentColor" class="size-6" aria-hidden="true">
+									<path stroke-linecap="round" stroke-linejoin="round"
+										d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+								</svg>
+							</button>
+							<button type="button" class="text-slate-700 hover:text-purple-600 transition-colors"
+								aria-label="Comment">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+									stroke-width="1.5" stroke="currentColor" class="size-6" aria-hidden="true">
+									<path stroke-linecap="round" stroke-linejoin="round"
+										d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z" />
+								</svg>
+							</button>
+							<button type="button" class="text-slate-700 hover:text-purple-600 transition-colors"
+								aria-label="Share">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+									stroke-width="1.5" stroke="currentColor" class="size-6" aria-hidden="true">
+									<path stroke-linecap="round" stroke-linejoin="round"
+										d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
+								</svg>
+							</button>
+						</div>
+						<button type="button" class="text-slate-700 hover:text-purple-600 transition-colors"
+							aria-label="Save">
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+								stroke="currentColor" class="size-6" aria-hidden="true">
+								<path stroke-linecap="round" stroke-linejoin="round"
+									d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
+							</svg>
+						</button>
+					</div>
+
+					<!-- Likes -->
+					<div class="px-4 pb-2">
+						<p class="text-sm font-semibold text-slate-800">1,420 likes</p>
+					</div>
+
+					<!-- Caption and hashtags -->
+					<div class="px-4 pb-4">
+						<p class="text-sm text-slate-700">
+							<span class="font-semibold text-slate-800 mr-1">eva_dev</span>
+							Teaching an old dog new tricks! This styling is hard to wrap my head around, but Tailwind is
+							getting easier to understand.
+						</p>
+						<div class="flex flex-wrap gap-1 mt-2 text-xs text-purple-600 font-medium">
+							<span>#css</span>
+							<span>#frontend</span>
+							<span>#tailwind</span>
 						</div>
 					</div>
-					<button class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-ellipsis"></i></button>
-				</div>
-				<div class="w-full h-80 bg-slate-200">
-					<img class="w-full h-full object-cover" src="../images/alex_post_image.jpg"
-						alt="Tailwind UI components">
-				</div>
-				<div class="px-4 pt-3 pb-2 flex items-center justify-between">
-					<div class="flex items-center space-x-4">
-						<button class="text-slate-700 hover:text-red-500 transition-colors text-xl"><i
-								class="fa-regular fa-heart"></i></button>
-						<button class="text-slate-700 hover:text-purple-500 transition-colors text-xl"><i
-								class="fa-regular fa-comment"></i></button>
-						<button class="text-slate-700 hover:text-purple-500 transition-colors text-xl"><i
-								class="fa-regular fa-paper-plane"></i></button>
-					</div>
-					<button class="text-slate-700 hover:text-purple-500 transition-colors text-xl"><i
-							class="fa-regular fa-bookmark"></i></button>
-				</div>
-				<div class="px-4 pb-2">
-					<p class="text-sm font-semibold text-slate-800">854 likes</p>
-				</div>
-				<div class="px-4 pb-4">
-					<p class="text-sm text-slate-700">
-						<span class="font-semibold text-slate-800 mr-1">alex_codes</span>
-						Tailwind CSS utility classes make prototyping modern UIs insanely fast. Testing my latest
-						design.
-					</p>
-					<div class="flex flex-wrap gap-1 mt-2">
-						<span class="text-xs text-purple-600 font-medium">#tailwindcss</span>
-						<span class="text-xs text-purple-600 font-medium">#css</span>
-						<span class="text-xs text-purple-600 font-medium">#ui</span>
-					</div>
-				</div>
-			</div>
+				</article>
 
-			<!-- POST 3: -->
-			<div class="bg-white rounded-2xl shadow-md overflow-hidden border border-slate-200">
-				<div class="flex items-center justify-between p-4">
-					<div class="flex items-center space-x-3">
-						<img class="w-10 h-10 rounded-full object-cover border-2 border-emerald-500"
-							src="../images/eva_avatar.jpg" alt="Avatar">
-						<div>
-							<h3 class="font-semibold text-slate-800 text-sm">eva_dev</h3>
+				<!-- POST 2:  -->
+				<article class="bg-white rounded-2xl shadow-md overflow-hidden border border-slate-200">
+					<div class="flex items-center justify-between p-4">
+						<div class="flex items-center space-x-3">
+							<img class="w-10 h-10 rounded-full object-cover border-2 border-purple-600"
+								src="../images/jason_avatar.jpg" alt="Avatar">
+							<div>
+								<h3 class="font-semibold text-slate-800 text-sm">jason</h3>
+							</div>
+						</div>
+						<button type="button" class="text-slate-400 hover:text-slate-600" aria-label="More options">
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+								stroke="currentColor" class="size-6" aria-hidden="true">
+								<path stroke-linecap="round" stroke-linejoin="round"
+									d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+							</svg>
+						</button>
+					</div>
+					<div class="w-full h-80 bg-slate-200">
+						<img class="w-full h-full object-cover" src="../images/jason_post_image.jpg"
+							alt="SoMe page with many components">
+					</div>
+					<!-- Action buttons -->
+					<div class="px-4 pt-3 pb-2 flex items-center justify-between">
+						<div class="flex items-center space-x-4">
+							<button type="button" class="text-slate-700 hover:text-red-500 transition-colors"
+								aria-label="Like">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+									stroke-width="1.5" stroke="currentColor" class="size-6" aria-hidden="true">
+									<path stroke-linecap="round" stroke-linejoin="round"
+										d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+								</svg>
+							</button>
+							<button type="button" class="text-slate-700 hover:text-purple-600 transition-colors"
+								aria-label="Comment">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+									stroke-width="1.5" stroke="currentColor" class="size-6" aria-hidden="true">
+									<path stroke-linecap="round" stroke-linejoin="round"
+										d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z" />
+								</svg>
+							</button>
+							<button type="button" class="text-slate-700 hover:text-purple-600 transition-colors"
+								aria-label="Share">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+									stroke-width="1.5" stroke="currentColor" class="size-6" aria-hidden="true">
+									<path stroke-linecap="round" stroke-linejoin="round"
+										d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
+								</svg>
+							</button>
+						</div>
+						<button type="button" class="text-slate-700 hover:text-purple-600 transition-colors"
+							aria-label="Save">
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+								stroke="currentColor" class="size-6" aria-hidden="true">
+								<path stroke-linecap="round" stroke-linejoin="round"
+									d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
+							</svg>
+						</button>
+					</div>
+					<div class="px-4 pb-2">
+						<p class="text-sm font-semibold text-slate-800">854 likes</p>
+					</div>
+					<div class="px-4 pb-4">
+						<p class="text-sm text-slate-700">
+							<span class="font-semibold text-slate-800 mr-1">jason</span>
+							Tailwind CSS utility classes make prototyping modern UIs insanely fast. Testing my latest
+							design.
+						</p>
+						<div class="flex flex-wrap gap-1 mt-2 text-xs text-purple-600 font-medium">
+							<span>#tailwindcss</span>
+							<span>#css</span>
+							<span>#ui</span>
 						</div>
 					</div>
-					<button class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-ellipsis"></i></button>
-				</div>
-				<div class="px-4 pt-3 pb-2 flex items-center justify-between">
-					<div class="flex items-center space-x-4">
-						<button class="text-slate-700 hover:text-red-500 transition-colors text-xl"><i
-								class="fa-regular fa-heart"></i></button>
-						<button class="text-slate-700 hover:text-emerald-500 transition-colors text-xl"><i
-								class="fa-regular fa-comment"></i></button>
-						<button class="text-slate-700 hover:text-emerald-500 transition-colors text-xl"><i
-								class="fa-regular fa-paper-plane"></i></button>
-					</div>
-					<button class="text-slate-700 hover:text-emerald-500 transition-colors text-xl"><i
-							class="fa-regular fa-bookmark"></i></button>
-				</div>
-				<div class="px-4 pb-2">
-					<p class="text-sm font-semibold text-slate-800">623 likes</p>
-				</div>
-				<div class="px-4 pb-4">
-					<p class="text-sm text-slate-700">
-						<span class="font-semibold text-slate-800 mr-1">eva_dev</span>
-						Testing my design with Tailwind CSS.
-					</p>
-					<div class="flex flex-wrap gap-1 mt-2">
-						<span class="text-xs text-emerald-600 font-medium">#tailwind</span>
-						<span class="text-xs text-emerald-600 font-medium">#frontend</span>
-						<span class="text-xs text-emerald-600 font-medium">#clean-code</span>
-					</div>
-				</div>
-			</div>
+				</article>
 
-			<!-- POST 4:  -->
-			<div class="bg-white rounded-2xl shadow-md overflow-hidden border border-slate-200">
-				<div class="flex items-center justify-between p-4">
-					<div class="flex items-center space-x-3">
-						<img class="w-10 h-10 rounded-full object-cover border-2 border-amber-500"
-							src="../images/karen_avatar.jpg" alt="Avatar">
-						<div>
-							<h3 class="font-semibold text-slate-800 text-sm">karen_designs</h3>
+				<!-- POST 3: -->
+				<article class="bg-white rounded-2xl shadow-md overflow-hidden border border-slate-200">
+					<div class="flex items-center justify-between p-4">
+						<div class="flex items-center space-x-3">
+							<img class="w-10 h-10 rounded-full object-cover border-2 border-purple-600"
+								src="../images/eva_avatar.jpg" alt="Avatar">
+							<div>
+								<h3 class="font-semibold text-slate-800 text-sm">eva_dev</h3>
+							</div>
+						</div>
+						<button type="button" class="text-slate-400 hover:text-slate-600" aria-label="More options">
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+								stroke="currentColor" class="size-6" aria-hidden="true">
+								<path stroke-linecap="round" stroke-linejoin="round"
+									d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+							</svg>
+						</button>
+					</div>
+					<div class="w-full h-80 bg-slate-200">
+						<img class="w-full h-full object-cover" src="../images/eva_post_image.jpg"
+							alt="Testing design with Tailwind CSS">
+					</div>
+					<!-- Action buttons -->
+					<div class="px-4 pt-3 pb-2 flex items-center justify-between">
+						<div class="flex items-center space-x-4">
+							<button type="button" class="text-slate-700 hover:text-red-500 transition-colors"
+								aria-label="Like">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+									stroke-width="1.5" stroke="currentColor" class="size-6" aria-hidden="true">
+									<path stroke-linecap="round" stroke-linejoin="round"
+										d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+								</svg>
+							</button>
+							<button type="button" class="text-slate-700 hover:text-purple-600 transition-colors"
+								aria-label="Comment">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+									stroke-width="1.5" stroke="currentColor" class="size-6" aria-hidden="true">
+									<path stroke-linecap="round" stroke-linejoin="round"
+										d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z" />
+								</svg>
+							</button>
+							<button type="button" class="text-slate-700 hover:text-purple-600 transition-colors"
+								aria-label="Share">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+									stroke-width="1.5" stroke="currentColor" class="size-6" aria-hidden="true">
+									<path stroke-linecap="round" stroke-linejoin="round"
+										d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
+								</svg>
+							</button>
+						</div>
+						<button type="button" class="text-slate-700 hover:text-purple-600 transition-colors"
+							aria-label="Save">
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+								stroke="currentColor" class="size-6" aria-hidden="true">
+								<path stroke-linecap="round" stroke-linejoin="round"
+									d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
+							</svg>
+						</button>
+					</div>
+					<div class="px-4 pb-2">
+						<p class="text-sm font-semibold text-slate-800">623 likes</p>
+					</div>
+					<div class="px-4 pb-4">
+						<p class="text-sm text-slate-700">
+							<span class="font-semibold text-slate-800 mr-1">eva_dev</span>
+							Testing my design with Tailwind CSS.
+						</p>
+						<div class="flex flex-wrap gap-1 mt-2 text-xs text-purple-600 font-medium">
+							<span>#tailwind</span>
+							<span>#frontend</span>
+							<span>#clean-code</span>
 						</div>
 					</div>
-					<button class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-ellipsis"></i></button>
-				</div>
-				<div class="px-4 pt-3 pb-2 flex items-center justify-between">
-					<div class="flex items-center space-x-4">
-						<button class="text-slate-700 hover:text-red-500 transition-colors text-xl"><i
-								class="fa-regular fa-heart"></i></button>
-						<button class="text-slate-700 hover:text-amber-500 transition-colors text-xl"><i
-								class="fa-regular fa-comment"></i></button>
-						<button class="text-slate-700 hover:text-amber-500 transition-colors text-xl"><i
-								class="fa-regular fa-paper-plane"></i></button>
-					</div>
-					<button class="text-slate-700 hover:text-amber-500 transition-colors text-xl"><i
-							class="fa-regular fa-bookmark"></i></button>
-				</div>
-				<div class="px-4 pb-2">
-					<p class="text-sm font-semibold text-slate-800">412 likes</p>
-				</div>
-				<div class="px-4 pb-4">
-					<p class="text-sm text-slate-700">
-						<span class="font-semibold text-slate-800 mr-1">mia_frontend</span>
-						I love styling directly in html!
-					</p>
-					<div class="flex flex-wrap gap-1 mt-2">
-						<span class="text-xs text-amber-600 font-medium">#css</span>
-						<span class="text-xs text-amber-600 font-medium">#frontend</span>
-						<span class="text-xs text-amber-600 font-medium">#webdesign</span>
-					</div>
-				</div>
-			</div>
+				</article>
 
-			<!-- POST 5:  -->
-			<div class="bg-white rounded-2xl shadow-md overflow-hidden border border-slate-200">
-				<div class="flex items-center justify-between p-4">
-					<div class="flex items-center space-x-3">
-						<img class="w-10 h-10 rounded-full object-cover border-2 border-emerald-500"
-							src="../images/eva_avatar.jpg" alt="Avatar">
-						<div>
-							<h3 class="font-semibold text-slate-800 text-sm">eva_dev</h3>
+				<!-- POST 4:  -->
+				<article class="bg-white rounded-2xl shadow-md overflow-hidden border border-slate-200">
+					<div class="flex items-center justify-between p-4">
+						<div class="flex items-center space-x-3">
+							<img class="w-10 h-10 rounded-full object-cover border-2 border-purple-600"
+								src="../images/karen_avatar.jpg" alt="Avatar">
+							<div>
+								<h3 class="font-semibold text-slate-800 text-sm">karen_designs</h3>
+							</div>
+						</div>
+						<button type="button" class="text-slate-400 hover:text-slate-600" aria-label="More options">
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+								stroke="currentColor" class="size-6" aria-hidden="true">
+								<path stroke-linecap="round" stroke-linejoin="round"
+									d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+							</svg>
+						</button>
+					</div>
+					<div class="w-full h-80 bg-slate-200">
+						<img class="w-full h-full object-cover" src="../images/karen_post_image.jpg"
+							alt="My tailwind CSS design">
+					</div>
+					<!-- Action buttons -->
+					<div class="px-4 pt-3 pb-2 flex items-center justify-between">
+						<div class="flex items-center space-x-4">
+							<button type="button" class="text-slate-700 hover:text-red-500 transition-colors"
+								aria-label="Like">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+									stroke-width="1.5" stroke="currentColor" class="size-6" aria-hidden="true">
+									<path stroke-linecap="round" stroke-linejoin="round"
+										d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+								</svg>
+							</button>
+							<button type="button" class="text-slate-700 hover:text-purple-600 transition-colors"
+								aria-label="Comment">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+									stroke-width="1.5" stroke="currentColor" class="size-6" aria-hidden="true">
+									<path stroke-linecap="round" stroke-linejoin="round"
+										d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z" />
+								</svg>
+							</button>
+							<button type="button" class="text-slate-700 hover:text-purple-600 transition-colors"
+								aria-label="Share">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+									stroke-width="1.5" stroke="currentColor" class="size-6" aria-hidden="true">
+									<path stroke-linecap="round" stroke-linejoin="round"
+										d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
+								</svg>
+							</button>
+						</div>
+						<button type="button" class="text-slate-700 hover:text-purple-600 transition-colors"
+							aria-label="Save">
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+								stroke="currentColor" class="size-6" aria-hidden="true">
+								<path stroke-linecap="round" stroke-linejoin="round"
+									d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
+							</svg>
+						</button>
+					</div>
+					<div class="px-4 pb-2">
+						<p class="text-sm font-semibold text-slate-800">412 likes</p>
+					</div>
+					<div class="px-4 pb-4">
+						<p class="text-sm text-slate-700">
+							<span class="font-semibold text-slate-800 mr-1">karen_designs</span>
+							I love styling directly in html!
+						</p>
+						<div class="flex flex-wrap gap-1 mt-2 text-xs text-purple-600 font-medium">
+							<span>#css</span>
+							<span>#frontend</span>
+							<span>#webdesign</span>
 						</div>
 					</div>
-					<button class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-ellipsis"></i></button>
-				</div>
-				<div class="px-4 pt-3 pb-2 flex items-center justify-between">
-					<div class="flex items-center space-x-4">
-						<button class="text-slate-700 hover:text-red-500 transition-colors text-xl"><i
-								class="fa-regular fa-heart"></i></button>
-						<button class="text-slate-700 hover:text-emerald-500 transition-colors text-xl"><i
-								class="fa-regular fa-comment"></i></button>
-						<button class="text-slate-700 hover:text-emerald-500 transition-colors text-xl"><i
-								class="fa-regular fa-paper-plane"></i></button>
-					</div>
-					<button class="text-slate-700 hover:text-emerald-500 transition-colors text-xl"><i
-							class="fa-regular fa-bookmark"></i></button>
-				</div>
-				<div class="px-4 pb-2">
-					<p class="text-sm font-semibold text-slate-800">978 likes</p>
-				</div>
-				<div class="px-4 pb-4">
-					<p class="text-sm text-slate-700">
-						<span class="font-semibold text-slate-800 mr-1">eva_dev</span>
-						Setting up basic page structure before diving into styling.
-					</p>
-					<div class="flex flex-wrap gap-1 mt-2">
-						<span class="text-xs text-emerald-600 font-medium">#tailwindcss</span>
-						<span class="text-xs text-emerald-600 font-medium">#css</span>
-						<span class="text-xs text-emerald-600 font-medium">#frontend</span>
-					</div>
-				</div>
-			</div>
+				</article>
 
-			<!-- POST 6:  -->
-			<div class="bg-white rounded-2xl shadow-md overflow-hidden border border-slate-200">
-				<div class="flex items-center justify-between p-4">
-					<div class="flex items-center space-x-3">
-						<img class="w-10 h-10 rounded-full object-cover border-2 border-blue-500"
-							src="../images/marcus_avatar.jpg" alt="Avatar">
-						<div>
-							<h3 class="font-semibold text-slate-800 text-sm">marcus_script</h3>
+				<!-- POST 5:  -->
+				<article class="bg-white rounded-2xl shadow-md overflow-hidden border border-slate-200">
+					<div class="flex items-center justify-between p-4">
+						<div class="flex items-center space-x-3">
+							<img class="w-10 h-10 rounded-full object-cover border-2 border-purple-600"
+								src="../images/eva_avatar.jpg" alt="Avatar">
+							<div>
+								<h3 class="font-semibold text-slate-800 text-sm">eva_dev</h3>
+							</div>
+						</div>
+						<button type="button" class="text-slate-400 hover:text-slate-600" aria-label="More options">
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+								stroke="currentColor" class="size-6" aria-hidden="true">
+								<path stroke-linecap="round" stroke-linejoin="round"
+									d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+							</svg>
+						</button>
+					</div>
+					<div class="w-full h-80 bg-slate-200">
+						<img class="w-full h-full object-cover" src="../images/eva_post_image_02.jpg" alt="HTML code">
+					</div>
+					<!-- Action buttons -->
+					<div class="px-4 pt-3 pb-2 flex items-center justify-between">
+						<div class="flex items-center space-x-4">
+							<button type="button" class="text-slate-700 hover:text-red-500 transition-colors"
+								aria-label="Like">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+									stroke-width="1.5" stroke="currentColor" class="size-6" aria-hidden="true">
+									<path stroke-linecap="round" stroke-linejoin="round"
+										d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+								</svg>
+							</button>
+							<button type="button" class="text-slate-700 hover:text-purple-600 transition-colors"
+								aria-label="Comment">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+									stroke-width="1.5" stroke="currentColor" class="size-6" aria-hidden="true">
+									<path stroke-linecap="round" stroke-linejoin="round"
+										d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z" />
+								</svg>
+							</button>
+							<button type="button" class="text-slate-700 hover:text-purple-600 transition-colors"
+								aria-label="Share">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+									stroke-width="1.5" stroke="currentColor" class="size-6" aria-hidden="true">
+									<path stroke-linecap="round" stroke-linejoin="round"
+										d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
+								</svg>
+							</button>
+						</div>
+						<button type="button" class="text-slate-700 hover:text-purple-600 transition-colors"
+							aria-label="Save">
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+								stroke="currentColor" class="size-6" aria-hidden="true">
+								<path stroke-linecap="round" stroke-linejoin="round"
+									d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
+							</svg>
+						</button>
+					</div>
+					<div class="px-4 pb-2">
+						<p class="text-sm font-semibold text-slate-800">978 likes</p>
+					</div>
+					<div class="px-4 pb-4">
+						<p class="text-sm text-slate-700">
+							<span class="font-semibold text-slate-800 mr-1">eva_dev</span>
+							Setting up basic page structure before diving into styling.
+						</p>
+						<div class="flex flex-wrap gap-1 mt-2 text-xs text-purple-600 font-medium">
+							<span>#tailwindcss</span>
+							<span>#css</span>
+							<span>#frontend</span>
 						</div>
 					</div>
-					<button class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-ellipsis"></i></button>
-				</div>
-				<div class="px-4 pt-3 pb-2 flex items-center justify-between">
-					<div class="flex items-center space-x-4">
-						<button class="text-slate-700 hover:text-red-500 transition-colors text-xl"><i
-								class="fa-regular fa-heart"></i></button>
-						<button class="text-slate-700 hover:text-blue-500 transition-colors text-xl"><i
-								class="fa-regular fa-comment"></i></button>
-						<button class="text-slate-700 hover:text-blue-500 transition-colors text-xl"><i
-								class="fa-regular fa-paper-plane"></i></button>
-					</div>
-					<button class="text-slate-700 hover:text-blue-500 transition-colors text-xl"><i
-							class="fa-regular fa-bookmark"></i></button>
-				</div>
-				<div class="px-4 pb-2">
-					<p class="text-sm font-semibold text-slate-800">512 likes</p>
-				</div>
-				<div class="px-4 pb-4">
-					<p class="text-sm text-slate-700">
-						<span class="font-semibold text-slate-800 mr-1">marcus_script</span>
-						This was a blast! I think I'm almost done already. More time to build my robot!
-					</p>
-					<div class="flex flex-wrap gap-1 mt-2">
-						<span class="text-xs text-blue-600 font-medium">#frontend</span>
-						<span class="text-xs text-blue-600 font-medium">#robot</span>
-						<span class="text-xs text-blue-600 font-medium">#js</span>
-					</div>
-				</div>
-			</div>
+				</article>
 
+				<!-- POST 6:  -->
+				<article class="bg-white rounded-2xl shadow-md overflow-hidden border border-slate-200">
+					<div class="flex items-center justify-between p-4">
+						<div class="flex items-center space-x-3">
+							<img class="w-10 h-10 rounded-full object-cover border-2 border-purple-600"
+								src="../images/marcus_avatar.jpg" alt="Avatar">
+							<div>
+								<h3 class="font-semibold text-slate-800 text-sm">marcus_script</h3>
+							</div>
+						</div>
+						<button type="button" class="text-slate-400 hover:text-slate-600" aria-label="More options">
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+								stroke="currentColor" class="size-6" aria-hidden="true">
+								<path stroke-linecap="round" stroke-linejoin="round"
+									d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+							</svg>
+						</button>
+					</div>
+					<div class="w-full h-80 bg-slate-200">
+						<img class="w-full h-full object-cover" src="../images/marcus_post_image.jpg"
+							alt="Robot and coding">
+					</div>
+					<!-- Action buttons -->
+					<div class="px-4 pt-3 pb-2 flex items-center justify-between">
+						<div class="flex items-center space-x-4">
+							<button type="button" class="text-slate-700 hover:text-red-500 transition-colors"
+								aria-label="Like">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+									stroke-width="1.5" stroke="currentColor" class="size-6" aria-hidden="true">
+									<path stroke-linecap="round" stroke-linejoin="round"
+										d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+								</svg>
+							</button>
+							<button type="button" class="text-slate-700 hover:text-purple-600 transition-colors"
+								aria-label="Comment">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+									stroke-width="1.5" stroke="currentColor" class="size-6" aria-hidden="true">
+									<path stroke-linecap="round" stroke-linejoin="round"
+										d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z" />
+								</svg>
+							</button>
+							<button type="button" class="text-slate-700 hover:text-purple-600 transition-colors"
+								aria-label="Share">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+									stroke-width="1.5" stroke="currentColor" class="size-6" aria-hidden="true">
+									<path stroke-linecap="round" stroke-linejoin="round"
+										d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
+								</svg>
+							</button>
+						</div>
+						<button type="button" class="text-slate-700 hover:text-purple-600 transition-colors"
+							aria-label="Save">
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+								stroke="currentColor" class="size-6" aria-hidden="true">
+								<path stroke-linecap="round" stroke-linejoin="round"
+									d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
+							</svg>
+						</button>
+					</div>
+					<div class="px-4 pb-2">
+						<p class="text-sm font-semibold text-slate-800">512 likes</p>
+					</div>
+					<div class="px-4 pb-4">
+						<p class="text-sm text-slate-700">
+							<span class="font-semibold text-slate-800 mr-1">marcus_script</span>
+							This was a blast! I think I'm almost done already. More time to build my robot!
+						</p>
+						<div class="flex flex-wrap gap-1 mt-2 text-xs text-purple-600 font-medium">
+							<span>#frontend</span>
+							<span>#robot</span>
+							<span>#js</span>
+						</div>
+					</div>
+				</article>
+			</div>
 		</div>
 	</main>
 	<!-- Footer -->
@@ -310,7 +571,7 @@
 	</footer>
 
 	<!-- JavaScript for Mobile Menu Toggle -->
-	<script src="./js/menu.js"></script>
+	<script src="../js/menu.js"></script>
 </body>
 
 </html>
