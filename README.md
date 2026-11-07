@@ -76,7 +76,7 @@ A static social media site made for the Noroff CSS Frameworks course assignment 
 
 ## AI use
 
-I used AI for explaining concepts, brainstorming layout and finding mistakes in my code. All AI use is logged in [AI_LOG.md](AI_LOG.md).
+I used AI mostly for explaining concepts, brainstorming layout and finding mistakes in my code. All AI use is logged in [AI_LOG.md](AI_LOG.md).
 
 ## Author
 
