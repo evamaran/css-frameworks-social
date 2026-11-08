@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Log in to your My CA Platform account.">
+	<meta name="theme-color" content="#9333ea">
+	<title>Log in | My CA Platform</title>
+	<link rel="icon" href="./images/favicon.svg" type="image/svg+xml" sizes="any">
+	<link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body class="min-h-screen flex flex-col bg-gray-100">
+	<header class="bg-white border-b border-gray-100 shadow-xs">
+		<div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+			<a href="./" class="text-xl font-bold tracking-tight text-purple-600">My CA Platform</a>
+		</div>
+	</header>
+
+	<main class="flex-1 px-4 py-6 md:py-12 max-w-md md:max-w-3xl lg:max-w-5xl mx-auto">
+
+		<h1 class="text-3xl font-bold text-center">Welcome to My CA Platform</h1>
+		<p class="text-center text-gray-600 mb-6">Please log in or create an account to continue.</p>
+		<div class="flex flex-col gap-6 md:flex-row md:items-start">
+			<!-- Login Form -->
+			<section class="md:flex-1 bg-white p-6 rounded-lg shadow-lg outline outline-1 outline-gray-950/5">
+				<h2 class="text-2xl font-bold mb-4">Log in</h2>
+				<form class="flex flex-col gap-4" action="./profile">
+					<div class="flex flex-col gap-1">
+						<label class="block text-sm font-medium text-gray-700" for="login-email">Email:</label>
+						<input
+							class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-purple-600"
+							type="email" id="login-email" name="email" required>
+					</div>
+					<div class="flex flex-col gap-1">
+						<label class="block text-sm font-medium text-gray-700" for="login-password">Password:</label>
+						<input
+							class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-purple-600"
+							type="password" id="login-password" name="password" minlength="8" required>
+					</div>
+					<div class="flex flex-col gap-1">
+						<button class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
+							type="submit">Log In</button>
+					</div>
+				</form>
+				<div class="mt-4">No account? <a href="#register" class="text-purple-600 hover:underline">Create an
+						account</a>
+				</div>
+			</section>
+
+			<!-- Register Form -->
+			<section id="register"
+				class="md:flex-1 bg-white p-6 rounded-lg shadow-lg outline outline-1 outline-gray-950/5">
+				<h2 class="text-2xl font-bold mb-4">Create an Account</h2>
+				<form class="flex flex-col gap-4" action="/profile">
+					<div class="flex flex-col gap-1">
+						<label class="block text-sm font-medium text-gray-700" for="register-username">Username:</label>
+						<input
+							class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-purple-600"
+							type="text" id="register-username" name="username" required>
+					</div>
+					<div class="flex flex-col gap-1">
+						<label class="block text-sm font-medium text-gray-700" for="register-email">Email:</label>
+						<input
+							class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-purple-600"
+							type="email" id="register-email" name="email" required>
+					</div>
+					<div class="flex flex-col gap-1">
+						<label class="block text-sm font-medium text-gray-700" for="register-password">Password:</label>
+						<input
+							class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-purple-600"
+							type="password" id="register-password" name="password" minlength="8" required>
+					</div>
+					<div class="flex flex-col gap-1">
+						<button class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
+							type="submit">
+							Register</button>
+					</div>
+				</form>
+			</section>
+		</div>
+	</main>
+	<!-- Footer -->
+	<footer class="bg-white border-t border-gray-100">
+		<div class="max-w-6xl mx-auto px-4 py-6 text-center text-sm text-neutral-500">
+			<p>&copy; 2026 My CA Platform</p>
+		</div>
+	</footer>
+</body>
+
+</html>
