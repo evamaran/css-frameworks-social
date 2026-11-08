@@ -73,6 +73,7 @@ A static social media site made for the Noroff CSS Frameworks course assignment 
 - "Log in" and "Log out" just move between pages. There is no real login.
 - The site is responsive for mobile, tablet and desktop. The header with the search bar stays at the top when you scroll.
 - I added accessibility details like labels on all form fields, `aria-label` on icon buttons and screen-reader-only headings.
+- The brief says to use /profile as the form action. I changed it to ./profile/ so the login and register forms also work on GitHub Pages, where the site is in a subfolder. It still goes to the profile page, just from where the login page is instead of from the top of the address.
 
 ## AI use
 

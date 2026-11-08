@@ -57,3 +57,10 @@ All AI use for the CSS Frameworks course assignment. I used one AI tool, Claude 
 **Date:** 7 November 2026
 **Purpose:** Suggestions for the structure of the reflection document and reminders of things from earlier chats I could write about. Proofreading for typos. Help writing the paragraph about the PowerShell problem. Draft of this AI log.
 **Outcome:** Reflection written by me, except the PowerShell paragraph which is based on the AI's suggestion. I checked and edited the AI log.
+
+---
+
+**Tool used:** Claude
+**Date:** 8 November 2026
+**Purpose:** Clicking Log in did not take the user to the profile, but gave a 404 error. Discussed with AI, as I needed the site to work live as well as follow the assignment requirements. Requirements stated /profile, and making the site work would require a change to ./profile. Delivering a broken site was out of the question. Discussed pros and cons.
+**Outcome:** Despite AI wanting me to stick to /profile, I changed it and added a note about it in README and a new entry in AI log.
