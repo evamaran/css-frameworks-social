@@ -46,6 +46,13 @@ All AI use for the CSS Frameworks course assignment. I used one AI tool, Claude 
 
 ---
 
+**Tool used:** Gemini/ChatGPT
+**Date:** 4–6 November 2026
+**Purpose:** Create images for avatars and posts
+**Outcome:** Got the images needed for the posts on the feed page.
+
+---
+
 **Tool used:** Claude
 **Date:** 6 November 2026
 **Purpose:** Planning and review of the profile page, final review of the login page, and idea for a Log out link. Draft of the README.
@@ -64,3 +71,10 @@ All AI use for the CSS Frameworks course assignment. I used one AI tool, Claude 
 **Date:** 8 November 2026
 **Purpose:** Clicking Log in did not take the user to the profile, but gave a 404 error. Discussed with AI, as I needed the site to work live as well as follow the assignment requirements. Requirements stated /profile, and making the site work would require a change to ./profile. Delivering a broken site was out of the question. Discussed pros and cons.
 **Outcome:** Despite AI wanting me to stick to /profile, I changed it and added a note about it in README and a new entry in AI log.
+
+---
+
+**Tool used:** Claude
+**Date:** 8 November 2026
+**Purpose:** Final review of PR and documentation. AI suggested adding the use of AI to generate images for the feed page to AI log. Also suggested I add the challenge with the path from login to my reflections document.
+**Outcome:** Added entry in AI_LOG for images and updated the Challenges section in reflections document.

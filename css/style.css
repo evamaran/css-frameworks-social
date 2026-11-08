@@ -920,6 +920,9 @@
     .lg\:max-w-5xl {
       max-width: var(--container-5xl);
     }
+    .lg\:p-10 {
+      padding: calc(var(--spacing) * 10);
+    }
   }
   @media (prefers-color-scheme: dark) {
     .dark\:border-gray-600 {
@@ -930,6 +933,12 @@
     }
     .dark\:bg-slate-800 {
       background-color: var(--color-slate-800);
+    }
+    .dark\:bg-slate-900 {
+      background-color: var(--color-slate-900);
+    }
+    .dark\:text-gray-200 {
+      color: var(--color-gray-200);
     }
     .dark\:text-gray-300 {
       color: var(--color-gray-300);
